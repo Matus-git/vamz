@@ -6,7 +6,6 @@ import com.example.semkanotes.Database.NotesDao
 
 class NoteRepository(private val notesDao: NotesDao) {
 
-    val allNotes : LiveData<List<Note>> = notesDao.getAllNotes()
 
     suspend fun insert(note:Note){
         notesDao.insert(note)
@@ -19,5 +18,14 @@ class NoteRepository(private val notesDao: NotesDao) {
     suspend fun delete(note:Note){
         notesDao.delete(note)
     }
+
+    fun searchDatabase(searchNote:String) : LiveData<List<Note>>{
+        return notesDao.searchNotes(searchNote)
+    }
+
+    fun getAllData() : LiveData<List<Note>>{
+        return notesDao.getAllNotes()
+    }
+
 
 }

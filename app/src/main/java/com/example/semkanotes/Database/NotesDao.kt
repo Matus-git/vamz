@@ -18,4 +18,6 @@ interface NotesDao {
     @Query("Select * from notes order by id ASC")
     fun getAllNotes(): LiveData<List<Note>>
 
+    @Query("Select * from notes where title like :searchNote")
+    fun searchNotes(searchNote:String): LiveData<List<Note>>
 }

@@ -16,7 +16,9 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
     init {
         val notesDao = NoteDatabase.getDatabase(application).getNotesDao()
         repository = NoteRepository(notesDao)
-        allNotes = repository.allNotes
+        allNotes = repository.getAllData()
+
+
     }
 
     fun deleteNote(note:Note) = viewModelScope.launch(Dispatchers.IO) {
@@ -29,6 +31,10 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
 
     fun addNote(note:Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(note)
+    }
+
+    fun searchNote(search:String) :LiveData<List<Note>>  {
+        return repository.searchDatabase(search)
     }
 
 }

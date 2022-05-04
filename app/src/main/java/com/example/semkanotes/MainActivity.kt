@@ -20,7 +20,8 @@ import com.example.semkanotes.notesSemka.NoteClickInterface
 import com.example.semkanotes.notesSemka.NoteViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInterface {
+//, SearchView.OnQueryTextListener
+class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInterface, SearchView.OnQueryTextListener {
 
     lateinit var notes: RecyclerView
     lateinit var addButt: FloatingActionButton
@@ -50,25 +51,16 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         }
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.main_menu,menu)
-//
-//        val sv = menu!!.findItem(R.id.app_bar_search).actionView as SearchView
-//        val sm = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-//
-//        sv.setSearchableInfo(sm.getSearchableInfo(componentName))
-//        sv.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-//            override fun onQueryTextSubmit(p0: String?): Boolean {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun onQueryTextChange(p0: String?): Boolean {
-//                TODO("Not yet implemented")
-//            }
-//        })
-//
-//        return super.onCreateOptionsMenu(menu)
-//    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu,menu)
+
+        val search = menu?.findItem(R.id.app_bar_search)
+        val searchView = search?.actionView as? SearchView
+        searchView?.isSubmitButtonEnabled = true
+        searchView?.setOnQueryTextListener(this)
+
+        return true
+    }
 
     override fun onNoteClick(note: Note) {
         val intent = Intent(this@MainActivity,AddEdit::class.java)
@@ -84,5 +76,29 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         Toast.makeText(this,"${note.titleNote} bola odstránená", Toast.LENGTH_LONG ).show()
     }
 
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        if(query != null){
+            searchNotes(query)
+        }
+        return true
+    }
 
+    override fun onQueryTextChange(newText: String?): Boolean {
+        if(newText != null){
+            searchNotes(newText)
+        }
+        return true
+    }
+
+    private fun searchNotes(search :String) {
+        val searchQuery = "%$search%"
+        val noteAdapter = NoteAdapter(this,this,this)
+        notes.adapter = noteAdapter
+        viewModel.searchNote(searchQuery).observe(this,{ list ->
+            list?.let{
+                noteAdapter.updateLst(it)
+            }
+        })
+
+    }
 }
