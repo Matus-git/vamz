@@ -17,7 +17,10 @@ import com.example.semkanotes.notesSemka.NoteClickInterface
 import com.example.semkanotes.notesSemka.NoteViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-//, SearchView.OnQueryTextListener
+/**
+ * Trieda predstavuje hlavnú aktivitu
+ *
+ */
 class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInterface, SearchView.OnQueryTextListener {
 
     lateinit var notes: RecyclerView
@@ -38,7 +41,7 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         viewModel = ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(NoteViewModel::class.java)
         viewModel.notes.observe(this,{ list ->
             list?.let{
-                noteAdapter.updateLst(it)
+                noteAdapter.updateNoteList(it)
             }
         })
         addButt.setOnClickListener {
@@ -86,13 +89,19 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         return true
     }
 
+    /**
+     * Funkcia pomocou
+     * ktoréj vyhĺadávame a zobrazujeme  jednotlivé poznámkami
+     *
+     * @param search typu String
+     */
     private fun searchNotes(search :String) {
         val searchQuery = "%$search%"
         val noteAdapter = NoteAdapter(this,this,this)
         notes.adapter = noteAdapter
         viewModel.searchNote(searchQuery).observe(this,{ list ->
             list?.let{
-                noteAdapter.updateLst(it)
+                noteAdapter.updateNoteList(it)
             }
         })
 

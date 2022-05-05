@@ -51,7 +51,12 @@ class NoteAdapter(val context: Context,
         return allNotes.size
     }
 
-    fun updateLst(list: List<Note>) {
+    /**
+     * Funkcia slúži na aktualizáciu zobrazených dát
+     *
+     * @param list typu List<Note>
+     */
+    fun updateNoteList(list: List<Note>) {
         allNotes.clear()
         allNotes.addAll(list)
         notifyDataSetChanged()
