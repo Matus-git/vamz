@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:hint="Zadaj nadpis poznámky"
+        android:hint="@string/zadaj_nadpis_pozn_mky"
         android:layout_margin="5dp"
         android:padding="5dp"/>
 
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editNote"
         android:layout_margin="5dp"
-        android:hint="Zadaj telo poznámky"
+        android:hint="@string/zadaj_telo_pozn_mky"
         android:inputType="textMultiLine"
         android:padding="5dp"
         android:singleLine="false"
@@ -34,6 +34,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Uložiť"
+        android:text="@string/ulo_i"
         android:textAllCaps="false"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

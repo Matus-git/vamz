@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">semkaNotes</string>
+    <string name="search">Search</string>
+    <string name="title">Title</string>
+    <string name="d_tum_a_as">Dátum a čas</string>
+    <string name="zadaj_nadpis_pozn_mky">Zadaj nadpis poznámky</string>
+    <string name="zadaj_telo_pozn_mky">Zadaj telo poznámky</string>
+    <string name="ulo_i">Uložiť</string>
 </resources>
