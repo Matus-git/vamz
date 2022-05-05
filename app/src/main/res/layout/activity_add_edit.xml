@@ -20,10 +20,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editNote"
-        android:layout_margin="5dp"
+        android:layout_margin="10dp"
         android:hint="@string/zadaj_telo_pozn_mky"
         android:inputType="textMultiLine"
-        android:padding="5dp"
+        android:padding="10dp"
         android:singleLine="false"
         app:layout_constraintTop_toBottomOf="@+id/editNote"
         tools:layout_editor_absoluteX="5dp" />
