@@ -44,7 +44,7 @@ class NoteRepository(private val notesDao: NotesDao) {
      * Funkcia slúži na získanie hľadaných dát z databázy
      *
      * @param searchNote
-     * @return
+     * @return LiveData<List<Note>>
      */
     fun searchDatabase(searchNote:String) : LiveData<List<Note>>{
         return notesDao.searchNotes(searchNote)

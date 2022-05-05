@@ -58,7 +58,7 @@ class AddEdit : AppCompatActivity() {
                 }
             } else {
                if ( title.isNotEmpty() && desc.isNotEmpty()) {
-                   val dateFormat = SimpleDateFormat("dd mm yyyy - HH::mm")
+                   val dateFormat = SimpleDateFormat("dd mm yyyy - HH:mm")
                    val date:String = dateFormat.format(Date())
                    viewModel.addNote(Note(title,desc,date))
                    Toast.makeText(this,"Bol pridaný nový záznam", Toast.LENGTH_LONG).show()
