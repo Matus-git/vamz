@@ -6,4 +6,6 @@
     <string name="zadaj_nadpis_pozn_mky">Zadaj nadpis poznámky</string>
     <string name="zadaj_telo_pozn_mky">Zadaj telo poznámky</string>
     <string name="ulo_i">Uložiť</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

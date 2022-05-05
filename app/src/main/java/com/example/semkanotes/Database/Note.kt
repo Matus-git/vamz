@@ -4,6 +4,14 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ * Trieda predstavuje ako vyzerá databázová tabuľka
+ * a z akých parametrov sa skladá
+ *
+ * @property titleNote predstavuje stĺpec ktorý uchováva hodnoty o nadpise
+ * @property descNote predstavuje stĺpec ktorý uchováva hodnoty o popise poznámky
+ * @property timeStamp predstavuje stĺpec v kotorm sa uloží dátum manipulácie s poznámkou
+ */
 
 @Entity(tableName="notes")
 data class Note (@ColumnInfo(name = "title")val titleNote:String,

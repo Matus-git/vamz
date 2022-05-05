@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SemkaNotes">
         <activity
-            android:name=".AddEdit"
+            android:name=".Aktivity.AddEdit"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Aktivity.MainActivity"
             />
         <activity
-            android:name=".MainActivity"
+            android:name=".Aktivity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

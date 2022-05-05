@@ -1,4 +1,4 @@
-package com.example.semkanotes
+package com.example.semkanotes.Aktivity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.semkanotes.Database.Note
+import com.example.semkanotes.R
 import com.example.semkanotes.notesSemka.NoteViewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -64,7 +65,7 @@ class AddEdit : AppCompatActivity() {
                }
             }
 
-            startActivity(Intent(applicationContext,MainActivity::class.java))
+            startActivity(Intent(applicationContext, MainActivity::class.java))
             this.finish()
         }
 
