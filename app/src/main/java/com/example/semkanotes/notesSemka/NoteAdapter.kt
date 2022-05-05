@@ -15,11 +15,11 @@ import java.util.ArrayList
  * Trieda adapter slúži na nastavenie dát nášmu RecycleView ktorý
  * zobrazuje jednutlivé poznámky
  *
- * @property context
  * @property noteClickDeleteInterface
  * @property noteClickInterface
  */
-class NoteAdapter(val context: Context,
+//val context: Context,
+class NoteAdapter(
                   val noteClickDeleteInterface: NoteClickDeleteInterface ,
                   val noteClickInterface: NoteClickInterface ) :RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
 

@@ -10,7 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
- * Trieda slúži na prevednie dát z databázy do už=ivateľského rozhrania
+ * Trieda slúži na prevednie dát z databázy do užívateľského rozhrania
  * Predstavuje komunikačńu vrstvu medzi repozitárom a užívateľským rozhraním
  *
  * @param application

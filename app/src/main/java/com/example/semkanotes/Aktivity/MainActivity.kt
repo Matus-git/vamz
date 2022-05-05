@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
 
         notes.layoutManager = LinearLayoutManager(this)
 
-        val noteAdapter = NoteAdapter(this,this,this)
+        val noteAdapter = NoteAdapter(this,this)
         notes.adapter = noteAdapter
         viewModel = ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(NoteViewModel::class.java)
         viewModel.notes.observe(this,{ list ->
@@ -97,7 +97,8 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
      */
     private fun searchNotes(search :String) {
         val searchQuery = "%$search%"
-        val noteAdapter = NoteAdapter(this,this,this)
+        //this
+        val noteAdapter = NoteAdapter(this,this)
         notes.adapter = noteAdapter
         viewModel.searchNote(searchQuery).observe(this,{ list ->
             list?.let{
