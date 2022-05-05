@@ -68,5 +68,7 @@ class AddEdit : AppCompatActivity() {
             this.finish()
         }
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 }

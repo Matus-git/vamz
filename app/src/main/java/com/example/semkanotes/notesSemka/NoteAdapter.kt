@@ -31,11 +31,9 @@ class NoteAdapter(val context: Context,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.noteVW.setText(allNotes.get(position).titleNote)
         holder.timeStampVW.setText("Posledná aktualizácia: " + allNotes.get(position).timeStamp)
-
         holder.delButtVW.setOnClickListener{
             noteClickDeleteInterface.onDeleteButtClick(allNotes.get(position))
         }
-
         holder.itemView.setOnClickListener {
             noteClickInterface.onNoteClick(allNotes.get(position))
         }

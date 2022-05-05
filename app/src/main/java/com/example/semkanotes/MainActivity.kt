@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
         addButt.setOnClickListener {
             val intent = Intent(this,AddEdit::class.java)
             startActivity(intent)
-            this.finish()
         }
     }
 
