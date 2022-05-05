@@ -61,7 +61,7 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
     /**
      * Funkcia zavolá z repozitára funkciu
      * searchDatabase pomocou ktorej vyhľadá dáta
-     * @param search
+     * @param search typu String
      * @return LiveData<List<Note>>
      */
     fun searchNote(search:String) :LiveData<List<Note>>  {

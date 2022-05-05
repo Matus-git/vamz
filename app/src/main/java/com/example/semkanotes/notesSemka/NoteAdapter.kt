@@ -11,6 +11,14 @@ import com.example.semkanotes.Database.Note
 import com.example.semkanotes.R
 import java.util.ArrayList
 
+/**
+ * Trieda adapter slúži na nastavenie dát nášmu RecycleView ktorý
+ * zobrazuje jednutlivé poznámky
+ *
+ * @property context
+ * @property noteClickDeleteInterface
+ * @property noteClickInterface
+ */
 class NoteAdapter(val context: Context,
                   val noteClickDeleteInterface: NoteClickDeleteInterface ,
                   val noteClickInterface: NoteClickInterface ) :RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
@@ -50,11 +58,30 @@ class NoteAdapter(val context: Context,
     }
 }
 
-
+/**
+ * Rozhranie ktoré bude slúžiť na
+ * odstránenie záznamu
+ *
+ */
 interface NoteClickDeleteInterface{
+    /**
+     *Funkcia ktorá bude slúžiť na odstránenie záznamu
+     *
+     * @param note typu Note
+     */
     fun onDeleteButtClick(note: Note)
 }
 
+/**
+ * Rozhranie ktoré bude slúžiť na
+ * zobrazenie záznamu
+ */
 interface NoteClickInterface{
-   fun onNoteClick(note:Note)
+
+    /**
+     * Funkcia ktorá bude slúžiť na zobrazenie poznámky
+     *
+     * @param note typu Note
+     */
+    fun onNoteClick(note:Note)
 }

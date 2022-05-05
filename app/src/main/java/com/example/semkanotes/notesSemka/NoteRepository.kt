@@ -16,7 +16,7 @@ class NoteRepository(private val notesDao: NotesDao) {
     /**
      * Funckia insert slúži na pridanie nového záznamu do databázy
      *
-     * @param note
+     * @param note typu Note
      */
     suspend fun insert(note:Note){
         notesDao.insert(note)
@@ -25,7 +25,7 @@ class NoteRepository(private val notesDao: NotesDao) {
     /**
      * Funkcia update slúži na upravenie záznamu v databáze
      *
-     * @param note
+     * @param note typu Note
      */
     suspend fun update(note:Note){
         notesDao.update(note)
@@ -34,7 +34,7 @@ class NoteRepository(private val notesDao: NotesDao) {
     /**
      * Funkcia delete slúži na odstránenie záznamu z databázy
      *
-     * @param note
+     * @param note typu Note
      */
     suspend fun delete(note:Note){
         notesDao.delete(note)
@@ -43,7 +43,7 @@ class NoteRepository(private val notesDao: NotesDao) {
     /**
      * Funkcia slúži na získanie hľadaných dát z databázy
      *
-     * @param searchNote
+     * @param searchNote typu String
      * @return LiveData<List<Note>>
      */
     fun searchDatabase(searchNote:String) : LiveData<List<Note>>{
@@ -53,7 +53,7 @@ class NoteRepository(private val notesDao: NotesDao) {
     /**
      * Funkcia slúži na získanie všetkých dát z databázy
      *
-     * @return
+     * @return LiveData<List<Note>>
      */
     fun getAllNotes() : LiveData<List<Note>>{
         return notesDao.getAllNotes()

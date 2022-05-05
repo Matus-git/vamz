@@ -16,7 +16,7 @@ interface NotesDao {
     /**
      * Funkcia zabezpečuje vloženie novej poznánky
      *
-     * @param note
+     * @param note typu Note
      */
     @Insert(onConflict = OnConflictStrategy.IGNORE)
    fun insert(note:Note)
@@ -24,7 +24,7 @@ interface NotesDao {
     /**
      * Funkcia zabezpečuje upravenie poznánky
      *
-     * @param note
+     * @param note typu Note
      */
     @Update
    fun update(note:Note)
@@ -32,7 +32,7 @@ interface NotesDao {
     /**
      *Funkcia zabezpečuje odstránenie poznánky
      *
-     * @param note
+     * @param note typu Note
      */
     @Delete
     fun delete(note:Note)
@@ -42,7 +42,8 @@ interface NotesDao {
      * poznámok z databázy.
      *V @Query špecifikujeme aké dáta chceme získať a ako
      * a podľa čoho majú byť dáta usporiadané
-     * @return
+     *
+     * @return LiveData<List<Note>>
      */
     @Query("Select * from notes order by id ASC")
     fun getAllNotes(): LiveData<List<Note>>
@@ -52,8 +53,8 @@ interface NotesDao {
      * nachádzajúcich sa v nadpise poznámky
      * Vyhľadávanie funguje po znakoch ale aj celých slovách
      *
-     * @param searchNote
-     * @return
+     * @param searchNote typu String
+     * @return LiveData<List<Note>>
      */
     @Query("Select * from notes where title like :searchNote")
     fun searchNotes(searchNote:String): LiveData<List<Note>>
