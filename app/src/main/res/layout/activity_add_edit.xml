@@ -4,16 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dim_gray"
     tools:context=".Aktivity.AddEdit">
 
     <EditText
         android:id="@+id/editNote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="@string/zadaj_nadpis_pozn_mky"
         android:layout_margin="5dp"
-        android:padding="5dp"/>
+        android:background="@color/dim_gray"
+        android:minHeight="48dp"
+        android:hint="@string/zadaj_nadpis_pozn_mky"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck"
+        tools:layout_editor_absoluteX="5dp" />
 
     <EditText
         android:id="@+id/editDescription"
@@ -21,10 +28,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editNote"
         android:layout_margin="10dp"
+        android:background="@color/dim_gray"
         android:hint="@string/zadaj_telo_pozn_mky"
         android:inputType="textMultiLine"
+        android:minHeight="48dp"
         android:padding="10dp"
         android:singleLine="false"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/editNote"
         tools:layout_editor_absoluteX="5dp" />
 
@@ -35,5 +46,6 @@
         android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="@string/ulo_i"
+        android:backgroundTint="@color/silver"
         android:textAllCaps="false"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
