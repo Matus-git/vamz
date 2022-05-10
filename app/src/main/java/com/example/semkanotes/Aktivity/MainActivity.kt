@@ -19,6 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 /**
  * Trieda predstavuje hlavnú aktivitu
+ * ktorá zobrazuje všetky poznámky
  *
  */
 class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInterface, SearchView.OnQueryTextListener {
@@ -97,7 +98,7 @@ class MainActivity : AppCompatActivity(), NoteClickInterface, NoteClickDeleteInt
      */
     private fun searchNotes(search :String) {
         val searchQuery = "%$search%"
-        //this
+
         val noteAdapter = NoteAdapter(this,this)
         notes.adapter = noteAdapter
         viewModel.searchNote(searchQuery).observe(this,{ list ->
